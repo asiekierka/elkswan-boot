@@ -1,0 +1,3 @@
+[submodule "vendor/libnile"]
+	path = vendor/libnile
+	url = https://github.com/49bitcat/libnile

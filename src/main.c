@@ -213,10 +213,10 @@ void main(void) {
 
 	ws_bank_with_ram(NILESWAN_KERNEL_BANK, {
 		ws_bank_with_flash(1, {
-			for (uint16_t text_pos = 0; text_pos < text_size; text_pos += 16384) {
-				uint16_t next_step = text_size - text_pos;
-				if (next_step > 16384)
-					next_step = 16384;
+			for (uint32_t text_pos = 0; text_pos < text_size; text_pos += 32768) {
+				uint32_t next_step = text_size - text_pos;
+				if (next_step > 32768)
+					next_step = 32768;
 
 				fatfs_check(f_read(&fsf, MK_FP(0x1000, text_pos), next_step, &bytes_read));
 				cputs(".");
@@ -272,8 +272,7 @@ void main(void) {
 		setup_romfs_base = 0x4000;
 		setup_root_dev = ROMFS_DEV;
 	} else {
-		// FIXME: FAT support
-		setup_root_dev = ROMFS_DEV;
+		setup_root_dev = SSD_DEV;
 	}
 #endif
 

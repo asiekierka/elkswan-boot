@@ -21,6 +21,7 @@
 #define ARCH_TYPE_SWAN_WITCH 0x01
 #define ARCH_TYPE_SWAN_NILE  0x02
 
+#define SSD_DEV 0x0200
 #define ROMFS_DEV 0x0600
 
 #endif /* MEMORY_H_ */

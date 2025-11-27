@@ -174,7 +174,8 @@ void main(void) {
 	memset(MK_FP(SETUP_SEG, 0), 0, SETUP_LEN);
 
 #ifdef TARGET_WWITCH
-	setup_xms_kbytes = 3*64;
+	setup_arch_type = ARCH_TYPE_SWAN_WITCH;
+	setup_xms_kbytes = 4*64;
 	setup_root_dev = ROMFS_DEV;
 
 	entry_seg = FP_SEG(system_ptr) + 2;
@@ -191,6 +192,7 @@ void main(void) {
 
 #ifdef TARGET_NILESWAN
 	// TODO: implement nileswan layout
+	setup_arch_type = ARCH_TYPE_SWAN_NILE;
 	setup_xms_kbytes = 8*64;
 
 	uint16_t bytes_read;

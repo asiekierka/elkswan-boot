@@ -12,10 +12,14 @@
 #define setupw(i) (*((uint16_t ws_iram*) ((SETUP_SEG << 4) + (i))))
 #define data_ptr ((uint8_t ws_iram*) (DATA_SEG << 4))
 
+#define setup_arch_type setupb(0x1dd)
 #define setup_opt_base setupw(0x1de)
 #define setup_romfs_base setupw(0x1e0)
 #define setup_xms_kbytes setupw(0x1ea)
 #define setup_root_dev setupw(0x1fc)
+
+#define ARCH_TYPE_SWAN_WITCH 0x01
+#define ARCH_TYPE_SWAN_NILE  0x02
 
 #define ROMFS_DEV 0x0600
 
